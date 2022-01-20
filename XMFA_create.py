@@ -21,5 +21,14 @@ def create_xmfa(dir,parts):
 				shutil.copyfileobj(in_h,out_h)
 				out_h.write("\n=\n")
 
+def fix_header():
+	with open("core_aln.xmfa",'r') as in_h:
+		with open("core_aln_headerfixed.xmfa", "w") as out_h:
+			lines = in_h.readlines()
+			for line in lines:
+				replaced=re.sub(';.*','',line)
+				out_h.write(replaced)
+
 alns=read_partitions(file)
 create_xmfa(dir,alns)
+fix_header()

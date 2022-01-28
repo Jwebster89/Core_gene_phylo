@@ -1,0 +1,3 @@
+[submodule "maskrc-svg"]
+	path = maskrc-svg
+	url = https://github.com/kwongj/maskrc-svg.git

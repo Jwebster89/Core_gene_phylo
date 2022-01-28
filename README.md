@@ -1,6 +1,20 @@
 # Core_gene_phylo
 Repository for code to create bacterial core gene phylogenies
 
+## Installation and dependancies
+
+Install dependancies with conda and pip:
+
+```
+conda create -n core_gene_phylo_env python=3 biopython=1.79 panaroo=1.2.9 iqtree=2.1.2 clonalframeml=1.12 ete3 bcbio-gff svgwrite
+conda activate core_gene_phylo_env
+pip install FastRoot
+dos2unix $(which FastRoot.py)
+git clone https://github.com/Jwebster89/Core_gene_phylo.git
+cd Core_gene_phylo
+python setup.py install
+```
+
 ## Quick Usage
 Core_gene_phylogeny_runner.sh requires a folder with gff files, an output directory and the number of threads.
 

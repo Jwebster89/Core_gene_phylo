@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+
+import subprocess, argparse, os
+from distutils.spawn import find_executable
+
+parser = argparse.ArgumentParser(description="core_gene_phylo - Scripts to create bacterial core gene phylogenies.")
+parser.add_argument("-g", "--gff-dir", required=True, help="Path to a directory with your sample gff files.", action="store", dest="gff_dir", type=os.path.abspath)
+parser.add_argument("-o", "--output-dir", required=True, help="Path to the output directory. A directory will be created if one does not exist.", action="store", dest="outdir", type=os.path.abspath)
+parser.add_argument("-t", "--threads", help="Number of threads.", action="store", dest="threads", type=int, default=1)
+
+args = parser.parse_args()
+
+#Check for dependencies
+print("Checking dependencies...\n")
+try:
+    import Bio
+except ModuleNotFoundError:
+    print("Biopython not found. Exiting...")
+    sys.exit(1)
+if not find_executable("panaroo"):
+    print("panaroo not found. Exiting...")
+    sys.exit(1)
+if not find_executable("iqtree"):
+    print("iqtree not found. Exiting...")
+    sys.exit(1)
+if not find_executable("ClonalFrameML"):
+    print("ClonalFrameML not found. Exiting...")
+    sys.exit(1)
+if not find_executable("maskrc-svg.py"):
+    print("maskrc-svg.py not found.  Exiting...")
+    sys.exit(1)
+if not find_executable("FastRoot.py"):
+    print("FastRoot.py not found. Exiting...")
+    sys.exit(1)
+
+
+if __name__ == "__main__":
+    subprocess.run(["Core_gene_phylogeny_runner.sh", args.gff_dir, args.outdir, str(args.threads)])

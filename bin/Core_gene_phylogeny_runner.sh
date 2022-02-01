@@ -4,12 +4,12 @@ gff_dir=$1
 outdir=$2
 threads=$3
 
-if [ ! -e core_gene_alignment.aln ]; then
+if [ ! -e $outdir/core_gene_alignment.aln ]; then
 panaroo -i $gff_dir/* -o $outdir -t $threads --clean-mode strict -a core --core_threshold 0.9999 || exit 1
 fi
 cd $outdir
 
-if [ ! -e core_gene_alignment.aln ]; then
+if [ ! -e core_gene_alignment.partitions.txt ]; then
 model_test_roary_core_gene_alignment.py core_gene_alignment.aln core_alignment_header.embl $threads core_gene_alignment || exit 1
 fi
 

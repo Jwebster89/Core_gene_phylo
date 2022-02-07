@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import sys, os, subprocess, shutil
+import re, sys, os, subprocess, shutil
 
 file=sys.argv[1]
 dir=sys.argv[2]

@@ -10,7 +10,7 @@ def read_partitions(file):
 		for line in fh:
 			if line.startswith("\tcharset"):
 				split=line.split(" ")
-				passed_partitions.append(split[1]+".aln.fas")
+				passed_partitions.append(split[1]+".aln")
 	return(passed_partitions)
 
 

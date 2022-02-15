@@ -18,15 +18,15 @@ iqtree -s core_gene_alignment.aln -p core_gene_alignment.partitions.txt -m GTR+I
 fi
 
 if [ ! -e core_aln_headerfixed.xmfa ]; then
-XMFA_create.py core_gene_alignment.partitions.txt $outdir/.tmp || exit 1
+XMFA_create.py core_gene_alignment.partitions.txt ./.tmp || exit 1
 fi
 
-if [ ! -e core_gene_alignment.partitions.cfml.em ]; then
+if [ ! -e core_gene_alignment.partitions.cfml.em.em.txt ]; then
 ClonalFrameML core_gene_alignment.partitions.txt.treefile core_aln_headerfixed.xmfa core_gene_alignment.partitions.cfml.em -em true -emsim 100 -xmfa_file true || exit 1
 fi
 
 if [ ! -e core_gene_alignment.rc_masked.aln ]; then
-maskrc-svg.py --aln core_gene_alignment.aln --out core_gene_alignment.rc_masked.aln --svg core_gene_alignment.rc_masked.svg core_gene_alignment.partitions.cfml.em || exit 1
+maskrc-svg.py --aln core_gene_alignment.gappend.aln --out core_gene_alignment.rc_masked.aln --svg core_gene_alignment.rc_masked.svg core_gene_alignment.partitions.cfml.em || exit 1
 fi
 
 if [ ! -e core_gene_alignment.rc_masked.filtered.partitions.txt ]; then

@@ -6,7 +6,7 @@ Repository for code to create bacterial core gene phylogenies
 Install dependancies with conda and pip:
 
 ```
-conda create -n core_gene_phylo_env python=3 biopython=1.79 panaroo=1.2.9 iqtree=2.1.2 clonalframeml=1.12 ete3 bcbio-gff svgwrite
+conda create -n core_gene_phylo_env python=3 biopython=1.79 panaroo=1.2.9 iqtree=2.1.2 clonalframeml=1.12 ete3 bcbio-gff svgwrite dos2unix
 conda activate core_gene_phylo_env
 pip install FastRoot
 dos2unix $(which FastRoot.py)

@@ -10,7 +10,7 @@ conda create -n core_gene_phylo_env python=3 biopython=1.79 panaroo=1.2.9 iqtree
 conda activate core_gene_phylo_env
 pip install FastRoot
 dos2unix $(which FastRoot.py)
-git clone https://github.com/Jwebster89/Core_gene_phylo.git
+git clone --recurse-submodules https://github.com/Jwebster89/Core_gene_phylo.git
 cd Core_gene_phylo
 python setup.py install
 ```

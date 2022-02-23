@@ -14,6 +14,6 @@ setup(
     keywords = "genomics phylogenetics core-gene",
     url = "https://github.com/Jwebster89/Core_gene_phylo",
     py_modules=['core_gene_phylo'],
-    scripts=['bin/core_gene_phylo', 'bin/Core_gene_phylogeny_runner.sh', 'bin/model_test_roary_core_gene_alignment.py', 'bin/XMFA_create.py', 'maskrc-svg/maskrc-svg.py'],
+    scripts=['bin/core_gene_phylo', 'bin/Core_gene_phylogeny_runner.sh', 'bin/model_test_roary_core_gene_alignment.py', 'bin/XMFA_create.py', 'maskrc-svg/maskrc-svg.py','bin/version.py'],
     long_description=read('README.md'),
 )
